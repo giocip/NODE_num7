@@ -84,9 +84,9 @@ Division precision (ex. 128 decs) may be specified as parameter after numeric st
 (// % operators by divmod function) integer division and remainder:  
 
 	> a = new Num('14.0'); b = new Num('4.0') //  
-	> QR = Num.divmod(a, b); console.log('Quotient =', QR[0], 'Remainder =', QR[1])   //Quotient = 3.0 Remainder = 2.0  
+	> QR = Num.divmod(a, b); console.log('Quotient =', QR[0].toString(), 'Remainder =', QR[1].toString())   //Quotient = 3.0 Remainder = 2.0  
 
 (divmod function) floating division and remainder:  
 
 	> a = new Num('10.123456789'); b = new Num('2.0') // 
-	> QR = Num.divmod(a, b); console.log('Quotient =', QR[0], 'Remainder =', QR[1])   //Quotient = 5.0 Remainder = 0.123456789  
+	> QR = Num.divmod(a, b); console.log('Quotient =', QR[0].toString(), 'Remainder =', QR[1].toString())   //Quotient = 5.0 Remainder = 0.123456789  

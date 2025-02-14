@@ -58,6 +58,35 @@ Fairly portable to Python one (and vice-versa) also a Node.js system can work wi
 	> a = new Num('3.0'); b = new Num('5.0'); c = new Num('0.0'); //
 	> console.log('a =', a.toString(), 'b =', b.toString(), 'c =', c.toString()) //a = 3.0 b = 5.0 c = 0.0 
 
+(+) adding:  
 
+	> R = a.Add(b).Add(c); console.log(R.toString()) //8.0  
+	> a = new Num('0.1'); b = new Num('0.2'); c = new Num('0.0'); console.log(a.Add(b).Add(c).toString()) //0.3  
+ 
+(-) subtracting:  
 
+	> a = new Num('0.1'); b = new Num('0.2'); c = new Num('0.3');  
+	> console.log(a.Add(b).Sub(c).toString()) //0.0  
+	> R = new Num('-3.99').Sub(new Num('-5.20')).Sub(new Num('+3.01')); console.log(R.toString()) //-1.8  
 
+(*) multiplying:  
+
+	> new Num('-3.99').Mul(new Num('-5.20')).Mul(new Num('+3.01')) //-3.99 * (-5.20) * (+3.01 ) = Num('62.45148')
+
+(/) dividing (80 decimal digits default gets only for division operation):  
+
+	> new Num('3.0').Div(new Num('5.7')) //3 : 5.7 = new Num('0.52631578947368421052631578947368421052631578947368421052631578947368421052631578')  
+
+Division precision (ex. 128 decs) may be specified as parameter after numeric string as: 
+ 	    
+	> new Num('3.0', 128).Div(new Num('5.7', 128)) //3 : 5.7 = Num('0.52631578947368421052631578947368421052631578947368421052631578947368421052631578947368421052631578947368421052631578947368421052')  
+
+(// % operators by divmod function) integer division and remainder:  
+
+	> a = new Num('14.0'); b = new Num('4.0') //  
+	> QR = Num.divmod(a, b); console.log('Quotient =', QR[0], 'Remainder =', QR[1])   //Quotient = 3.0 Remainder = 2.0  
+
+(divmod function) floating division and remainder:  
+
+	> a = new Num('10.123456789'); b = new Num('2.0') // 
+	> QR = Num.divmod(a, b); console.log('Quotient =', QR[0], 'Remainder =', QR[1])   //Quotient = 5.0 Remainder = 0.123456789  

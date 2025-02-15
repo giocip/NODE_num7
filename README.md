@@ -43,10 +43,10 @@ Fairly portable to Python one (and vice-versa) also a Node.js system can work wi
     ROOT_ith           > calc.root_i('1.860867', 3).toString() //new Num('1.23')  
     ROUND:             > calc.sqrt('2.0').Round(2).toString()  //new Num('1.41')  
     ABSOLUTE VALUE     > calc.abs('-3.0').toString()           //new Num('3.0')  
-    SUM:               > cart = ['19.32','18.37','15.13']; calc.sum(cart).toString()     	   //Num('52.82')  
-    MEAN:              > cart = ['19.32','18.37','15.13']; calc.mean(cart).Round().toString() //Num('17.61')  
-    MIN:               > cart = ['19.32','18.37','15.13']; calc.min(cart).toString()   //Num('15.13')  
-    MAX:               > cart = ['19.32','18.37','15.13']; calc.max(cart).toString()  //Num('19.32')  
+    SUM:               > cart = ['19.32','18.37','15.13']; calc.sum(cart).toString()     	   //new Num('52.82')  
+    MEAN:              > cart = ['19.32','18.37','15.13']; calc.mean(cart).Round().toString() //new Num('17.61')  
+    MIN:               > cart = ['19.32','18.37','15.13']; calc.min(cart).toString()   //new Num('15.13')  
+    MAX:               > cart = ['19.32','18.37','15.13']; calc.max(cart).toString()  //new Num('19.32')  
     EXP:               > calc.mul('-5.3e1024', '2.1e1024').Num2exp()                 //'-1.113e2049'  
     REPL:              > a = new calc('0.1'); b = new calc('0.2'); calc.add(a, b).toString() //0.3
 
@@ -71,7 +71,7 @@ Fairly portable to Python one (and vice-versa) also a Node.js system can work wi
 
 (*) multiplying:  
 
-	> new Num('-3.99').Mul(new Num('-5.20')).Mul(new Num('+3.01')) //-3.99 * (-5.20) * (+3.01 ) = Num('62.45148')
+	> new Num('-3.99').Mul(new Num('-5.20')).Mul(new Num('+3.01')) //-3.99 * (-5.20) * (+3.01 ) = new Num('62.45148')
 
 (/) dividing (80 decimal digits default gets only for division operation):  
 
@@ -79,7 +79,7 @@ Fairly portable to Python one (and vice-versa) also a Node.js system can work wi
 
 Division precision (ex. 128 decs) may be specified as parameter after numeric string as: 
  	    
-	> new Num('3.0', 128).Div(new Num('5.7', 128)) //3 : 5.7 = Num('0.52631578947368421052631578947368421052631578947368421052631578947368421052631578947368421052631578947368421052631578947368421052')  
+	> new Num('3.0', 128).Div(new Num('5.7', 128)) //3 : 5.7 = new Num('0.52631578947368421052631578947368421052631578947368421052631578947368421052631578947368421052631578947368421052631578947368421052')  
 
 (// % operators by divmod function) integer division and remainder:  
 
@@ -90,3 +90,8 @@ Division precision (ex. 128 decs) may be specified as parameter after numeric st
 
 	> a = new Num('10.123456789'); b = new Num('2.0') // 
 	> QR = Num.divmod(a, b); console.log('Quotient =', QR[0].toString(), 'Remainder =', QR[1].toString())   //Quotient = 5.0 Remainder = 0.123456789  
+ 
+(sqrt) square root function: 
+
+	a = new Num('123_456_789.1234567890123456789'); root = a.Sqrt() // new Num('11111.11106611111096998611053449930232404576951925017079015206589094347963821409843324')  
+	console.log('result digits number Array =>', root.Len()) //result digits number Array => (5, 80)  

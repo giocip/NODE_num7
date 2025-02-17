@@ -93,5 +93,22 @@ Division precision (ex. 128 decs) may be specified as parameter after numeric st
  
 (sqrt) square root function: 
 
-	a = new Num('123_456_789.1234567890123456789'); root = a.Sqrt() // new Num('11111.11106611111096998611053449930232404576951925017079015206589094347963821409843324')  
-	console.log('result digits number Array =>', root.Len()) //result digits number Array => (5, 80)  
+	> a = new Num('123_456_789.1234567890123456789'); root = a.Sqrt() // new Num('11111.11106611111096998611053449930232404576951925017079015206589094347963821409843324')  
+	> console.log('result digits number Array =>', root.Len()) //result digits number Array => (5, 80)  
+
+
+(**) power pow function:  
+
+	> a = new Num('2.22123').Pow(64); console.log(a.toString()) //# 15204983311631674774944.65147209888660757554174463321311015807893679105748958794491681177995203669698667160837739445605536688871012507194541849848681968140805876570485027380472936734094801420552285940765338219588362327695177798251793912104057999943308320501195784173135380826413054938730768027747418766018606636039075568645106645889100039914241  
+	> console.log(a.Len().toString())           //(23, 320) digits len Array  
+	> console.log(new Num(Num.pi).toString())  //3.141592654  
+	> console.log(Num.pow(new Num(Num.pi), 8).toString()) //Num('9488.531025982131642534428505085353941520356351078169077371202330414440366336')  
+
+logic (in, not in, is, is not, <, <=, >, >=, !=, ==) and relational operators (&&, ||, !).  
+
+(in):  
+
+	> L = [new Num('0.1'), new Num('1.0'), new Num('5.5'), new Num('-3.0'), new Num('-2.9'), new Num('-3.0001'), new Num('2.2')]   
+	> Num.in(L, new Num('-3.0001'))   //true
+ 	> Num.in(L, new Num('-3.00001')) //false
+  

@@ -111,4 +111,14 @@ logic (in, not in, is, is not, <, <=, >, >=, !=, ==) and relational operators (&
 	> L = [new Num('0.1'), new Num('1.0'), new Num('5.5'), new Num('-3.0'), new Num('-2.9'), new Num('-3.0001'), new Num('2.2')]   
 	> Num.in(L, new Num('-3.0001'))   //true
  	> Num.in(L, new Num('-3.00001')) //false
+
+(not_in):
+
+ 	> Num.not_in(L, new Num('-3.0001'))   //false
+  	> Num.not_in(L, new Num('-3.00001')) //true
+
+(is, is_not):
+
+	> 
+ 	>
   

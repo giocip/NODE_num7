@@ -104,21 +104,38 @@ Division precision (ex. 128 decs) may be specified as parameter after numeric st
 	> console.log(new Num(Num.pi).toString())  //3.141592654  
 	> console.log(Num.pow(new Num(Num.pi), 8).toString()) //Num('9488.531025982131642534428505085353941520356351078169077371202330414440366336')  
 
-logic (in, not in, is, is not, <, <=, >, >=, !=, ==) and relational operators (&&, ||, !).  
+logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (and, or, not).  
 
 (in):  
 
 	> L = [new Num('0.1'), new Num('1.0'), new Num('5.5'), new Num('-3.0'), new Num('-2.9'), new Num('-3.0001'), new Num('2.2')]   
 	> Num.in(L, new Num('-3.0001'))   //true
  	> Num.in(L, new Num('-3.00001')) //false
+  	> new Num('-3.0001').In(L)	//true
 
 (not_in):
 
  	> Num.not_in(L, new Num('-3.0001'))   //false
   	> Num.not_in(L, new Num('-3.00001')) //true
+   	> new Num('-3.0001').Not_in(L)	    //false
 
 (is, is_not):
 
-	> 
- 	>
+	> M = new calc('0.0'); Num.is(new Num('0.0'), M)    //false
+ 	> M = new calc('0.0'); Num.is_not(M.Inc('0.1'), M) //false
+  	> M; N = M; N.Dec('0.1'); Num.is(N, M) 	   	  //true
+   	> N.Is(M) 	//true
+    	> N.Is_not(M)  //false
+  
+ LT, LE, GT, GE, EQ, NE (< <= > >= != ==)
+
+	> a = new Num('0.0'); b = new Num('0.1'); c = new Num('-0.2')
+ 	> a.LT(b); a.LT(c); b.LT(c)    //true false false
+  	> a.LE(b); a.LE(c); b.LE(c)   //true false false
+   	> a.GT(b); a.GT(c); b.GT(c)  //false true true
+    	> a.GE(a); a.GE(c); b.GE(c) //true true true
+     	> c.EQ(new Num('-2.0').Mul(b)); a.EQ(c.Add(b.Mul('2.0'))); a.NE(a.Add(b).Add(c)) //true true true
+      	> a.And(b); a.Or(b); a.Not() //false true true
+	> a.And(b) ? true : false   //false
+ 	> a.Or(b)  ? true : false  //true
   

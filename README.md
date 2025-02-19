@@ -129,13 +129,13 @@ logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (a
   
  LT, LE, GT, GE, EQ, NE (< <= > >= != ==)
 
-	> a = new Num('0.0'); b = new Num('0.1'); c = new Num('-0.2')
- 	> a.LT(b); a.LT(c); b.LT(c)    //true false false
-  	> a.LE(b); a.LE(c); b.LE(c)   //true false false
-   	> a.GT(b); a.GT(c); b.GT(c)  //false true true
-    	> a.GE(a); a.GE(c); b.GE(c) //true true true
-     	> c.EQ(new Num('-2.0').Mul(b)); a.EQ(c.Add(b.Mul('2.0'))); a.NE(a.Add(b).Add(c)) //true true true
-      	> a.And(b); a.Or(b); a.Not() //false true true
+	> a = new Num('0.0'); b = new Num('0.1'); c = new Num('-0.2') 
+ 	> a.LT(b); a.LT(c); b.LT(c)    //true false false 
+  	> a.LE(b); a.LE(c); b.LE(c)   //true false false 
+   	> a.GT(b); a.GT(c); b.GT(c)  //false true true 
+    > a.GE(a); a.GE(c); b.GE(c) //true true true 
+    > c.EQ(new Num('-2.0').Mul(b)); a.EQ(c.Add(b.Mul('2.0'))); a.NE(a.Add(b).Add(c)) //true true true 
+    > a.And(b); a.Or(b); a.Not() //false true true 
 	> a.And(b) ? true : false   //false
  	> a.Or(b)  ? true : false  //true
   

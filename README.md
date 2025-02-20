@@ -124,10 +124,10 @@ logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (a
 	> M = new calc('0.0'); Num.is(new Num('0.0'), M)    //false
  	> M = new calc('0.0'); Num.is_not(M.Inc('0.1'), M) //false
   	> M; N = M; N.Dec('0.1'); Num.is(N, M) 	   	  //true
-   	> N.Is(M) 	//true
-    	> N.Is_not(M)  //false
+   	> N.Is(M) 	//true  
+    > N.Is_not(M)  //false
   
- LT, LE, GT, GE, EQ, NE (< <= > >= != ==)
+ LT, LE, GT, GE, EQ, NE (< <= > >= == !=)
 
 	> a = new Num('0.0'); b = new Num('0.1'); c = new Num('-0.2') 
  	> a.LT(b); a.LT(c); b.LT(c)    //true false false 
@@ -138,4 +138,11 @@ logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (a
     > a.And(b); a.Or(b); a.Not() //false true true 
 	> a.And(b) ? true : false   //false
  	> a.Or(b)  ? true : false  //true
-  
+
+  (+ - unary operators)
+
+	> new Num('+2.5521') 			       //Num('2.5521')  
+	> new Num('-3.3321') 			      //Num('-3.3321')  
+	> new Num('+2.5521').Add(new Num('-3.3321')) //Num('-0.78')  
+
+ 

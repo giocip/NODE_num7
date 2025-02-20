@@ -145,4 +145,7 @@ logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (a
 	> new Num('-3.3321') 			      //Num('-3.3321')  
 	> new Num('+2.5521').Add(new Num('-3.3321')) //Num('-0.78')  
 
- 
+ On a given variable the following arithmetic methods are available:
+
+  	> 
+

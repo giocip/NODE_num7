@@ -147,5 +147,21 @@ logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (a
 
  On a given variable the following arithmetic methods are available:
 
-  	> 
+	//variable arithmetics  
+	num7 = require("./num7"); Num = num7.Num; 
+	
+	a = new Num('10.25')  
+	console.log(a.toString())       //10.25  
+	a.Inc()        //increment (default) by one  
+	console.log(a.toString())       //11.25   
+	a.Dec(2)       //decrement (optional) 2 units  
+	console.log(a.toString())       //9.25  
+	a.Incmul()     //multiply (default) 10 times  
+	console.log(a.toString())       //92.5  
+	a.Decdiv(100)  //x100 (optional) division  
+	console.log(a.toString())       //0.925  
+	a.Clear()      //a variable set to zero   
+	console.log(a.toString())       //0.0    
+
+
 

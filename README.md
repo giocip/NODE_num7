@@ -163,5 +163,14 @@ logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (a
 	a.Clear()      //a variable set to zero   
 	console.log(a.toString())       //0.0    
 
+EVEN ODD numbering methods:
+	
+	num7 = require("./num7"); Num = num7.Num; 
+	
+	a = new Num(6); b = new Num(3); c = new Num('3.14')  
+	console.log(a, 'INTEGER =>', a.Is_numint(), 'EVEN =>', a.Is_numeven())   //6.0 INTEGER => true EVEN => true  
+	console.log(b, 'INTEGER =>', b.Is_numint(), 'ODD  =>', b.Is_numodd())   //3.0 INTEGER => true ODD  => true 
+	console.log(c, 'FLOAT  =>', c.Is_numfloat())                           //3.14 FLOAT  => true     
+	
 
 

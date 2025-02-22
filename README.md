@@ -174,7 +174,7 @@ EVEN ODD numbering methods:
 	
 # Advanced logic programming snippet
 
-LOOP EXAMPLE >>>  
+LOOP EXAMPLE >
 
 	num7 = require("./num7"); Num = num7.Num; 
 	i = new Num(0) 
@@ -189,4 +189,13 @@ LOOP EXAMPLE >>>
 	    console.log(i.toString()) //0.4 0.3 0.2 0.1 0.0  
 	} 
 
+ROUNDING AND ACCOUNTING >
+
+	num7 = require("./num7"); Num = num7.Num; 
+	p = new Num('11.19')                          //PRICE -Toslink cable for soundbar  
+	pd = Num.round(p.F_price_over(-7))           //PRICE DISCOUNTED 7%
+	d = Num.round(p.Sub(pd))                    //DISCOUNT
+	p_noTAX = Num.round(p.F_price_spinoff(22)) //ITEM COST WITHOUT TAX 22%  
+	TAX = Num.round(p.Sub(p_noTAX))           //TAX 22% 
+	console.log('price=' + pd.toString() + ' discount=' + d.toString() + ' COST=' + p_noTAX.toString() + ' TAX=' + TAX.toString()) //price=10.41 discount=0.78 COST=9.17 TAX=2.02
 

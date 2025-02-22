@@ -172,5 +172,21 @@ EVEN ODD numbering methods:
 	console.log(b, 'INTEGER =>', b.Is_numint(), 'ODD  =>', b.Is_numodd())   //3.0 INTEGER => true ODD  => true 
 	console.log(c, 'FLOAT  =>', c.Is_numfloat())                           //3.14 FLOAT  => true     
 	
+# Advanced logic programming snippet
+
+LOOP EXAMPLE >>>  
+
+	num7 = require("./num7"); Num = num7.Num; 
+	i = new Num(0) 
+	while (i.LT(new Num('1.0'))) {
+	    i.Inc('0.1')                //i += Num('0.1')
+	    if (i.LE(new Num('0.5'))) continue
+	    console.log(i.toString()) //0.6, 0.7, 0.8, 0.9, 1.0  
+	} 
+	while (i.Is_true()) {
+	    i.Dec('0.1')                //i -= Num('0.1') 
+	    if (i.GE(new Num('0.5'))) continue
+	    console.log(i.toString()) //0.4 0.3 0.2 0.1 0.0  
+	} 
 
 

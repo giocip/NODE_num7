@@ -199,3 +199,26 @@ ROUNDING AND ACCOUNTING >
 	TAX = Num.round(p.Sub(p_noTAX))           //TAX 22% 
 	console.log('price=' + pd.toString() + ' discount=' + d.toString() + ' COST=' + p_noTAX.toString() + ' TAX=' + TAX.toString()) //price=10.41 discount=0.78 COST=9.17 TAX=2.02
 
+OUTPUT FORMATTING AND LOCALIZATION >
+
+	num7 = require("./num7"); Num = num7.Num; 
+	
+	const userLang = navigator.language || navigator.userLanguage; 
+	console.log(userLang);  // e.g., 'it-IT' "en-US", "fr-FR" 
+	//calculating banking loan 
+	asset = new Num('100_000.0'); rate = new Num('6.5'); years = new Num('20.0')
+	monthly_payment = Num.f_fund_fr(asset, rate, years).Round()
+	
+	const formatted_USD_it = new Intl.NumberFormat("en-US", {
+	    style: 'currency',
+	    currency: 'USD',
+	}).format(monthly_payment);
+	console.log(formatted_USD_it, ' (USD)');  //$756.30  (USD)
+	
+	const formatted_EUR_it = new Intl.NumberFormat('it-IT', {
+	    style: 'currency',
+	    currency: 'EUR',
+	}).format(monthly_payment);
+	console.log(formatted_EUR_it, '(EUR)'); //756,30 € (EUR)
+
+ 

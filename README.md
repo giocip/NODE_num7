@@ -221,4 +221,50 @@ OUTPUT FORMATTING AND LOCALIZATION >
 	}).format(monthly_payment);
 	console.log(formatted_EUR_it, '(EUR)'); //756,30 € (EUR)
 
- 
+ROUNDING TYPES >
+
+	num7 = require("./num7"); Num = num7.Num;
+	
+	//''' Num floor rounding '''  
+	console.log(''.padStart(20, '-') + ' Num floor rounding')  
+	n = new Num(Num.pi)                            // 3.141592654  
+	console.log(n, n.Round_floor(2).toString())   // 3.14  
+	n = new Num(Num.pi).Inv_sign()               //-3.141592654  
+	console.log(n, n.Round_floor(2).toString()) //-3.15
+	n = new Num(Num.pi).Sub(3)                     // 0.141592654  
+	console.log(n, n.Round_floor(2).toString())   // 0.14  
+	n = new Num(Num.pi).Inv_sign().Add(3)        //-0.141592654  
+	console.log(n, n.Round_floor(2).toString()) //-0.15  
+	
+	//''' Num ceil rounding '''  
+	console.log(''.padStart(20, '-')  + ' Num ceil rounding')  
+	n = new Num(Num.pi)                          // 3.141592654  
+	console.log(n, n.Round_ceil(2).toString())  // 3.15  
+	n = new Num(Num.pi).Inv_sign()             //-3.141592654  
+	console.log(n, n.Round_ceil(2).toString())//-3.14  
+	n = new Num(Num.pi).Sub(3)                    // 0.141592654  
+	console.log(n, n.Round_ceil(2).toString())   // 0.15  
+	n = new Num(Num.pi).Inv_sign().Add(3)       //-0.141592654  
+	console.log(n, n.Round_ceil(2).toString()) //-0.14  
+	
+	//''' Num standard rounding '''  
+	console.log(''.padStart(20, '-') + ' Num standard rounding')  
+	n = new Num(Num.pi)                      // 3.141592654  
+	console.log(n, n.Round().toString())    // 3.14  
+	n = new Num(Num.pi).Inv_sign()         //-3.141592654  
+	console.log(n, n.Round().toString())  //-3.14  
+	n = new Num(Num.pi).Sub(3)               // 0.141592654  
+	console.log(n, n.Round(4).toString())   // 0.1416  
+	n = new Num(Num.pi).Inv_sign().Add(3)  //-0.141592654  
+	console.log(n, n.Round(4).toString()) //-0.1416  
+	
+	//''' Num half even rounding '''  
+	console.log(''.padStart(20, '-') + ' Num half to even rounding (statistic, zero symmetric)')  
+	n = new Num(Num.pi).Round_floor(4)              // 3.1415  
+	console.log(n, n.Round_bank(3).toString())     // 3.142  
+	n = new Num(Num.pi).Round_floor(4).Inv_sign() //-3.1415  
+	console.log(n, n.Round_bank(3).toString())   //-3.142  
+	n = new Num(Num.pi).Sub(3).Round_floor(8)              // 0.14159265  
+	console.log(n, n.Round_bank(7).toString())            // 0.1415926  
+	n = new Num(Num.pi).Round_floor(8).Inv_sign().Add(3) //-0.14159265  
+	console.log(n, n.Round_bank(7).toString())          //-0.1415926  

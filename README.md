@@ -141,9 +141,12 @@ logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (a
 
   (+ - unary operators)
 
-	> +new Num('2.5521') 			       //Num('2.5521')  
-	> -new Num('3.3321') 			      //Num('-3.3321')  
-	> +new Num('2.5521').Add(new Num('-3.3321')) //Num('-0.78')  
+	> a = new Num('2.5521') //Num { type: 'Num', n2: '', n0: '2', n1: '5521', L_n0: 1, L_n1: 4, n: '2.5521', d: 80 }
+	> console.log(a.toString());               //2.5521
+	> console.log(a.Minus().toString());      //-2.5521
+	> console.log(a.Plus().toString());      //2.5521
+	> console.log(a.Invsign().toString());  //-2.5521
+	> console.log(a.Invsign().toString()); //2.5521
 
  On a given variable the following arithmetic methods are available:
 

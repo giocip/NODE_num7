@@ -154,9 +154,47 @@ logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (a
 	op1 = new Num('3.0')  
 	op2 = 5
 	console.log(`${Num.int(op1).toString(2).padStart(8, '0')}`, op1.toString()) //00000011 3.0
-	op1 = op1.Andb(op2)                                                         //AND
+	op1 = op1.Andb(op2)                                                         /AND
 	console.log(`${Num.int(op2).toString(2).padStart(8, '0')}`, op2)            //00000101 5
 	console.log(`${Num.int(op1).toString(2).padStart(8, '0')}`, op1.toString()) //00000001 1
+
+	console.log('--- (|) OR  ---')  
+	op1 = new Num('3.0')  
+	op2 = 5
+	console.log(`${Num.int(op1).toString(2).padStart(8, '0')}`, op1.toString()) //00000011 3.0
+	op1 = op1.Orb(op2)                                                          //OR
+	console.log(`${Num.int(op2).toString(2).padStart(8, '0')}`, op2)            //00000101 5
+	console.log(`${Num.int(op1).toString(2).padStart(8, '0')}`, op1.toString()) //00000111 7
+ 
+	console.log('--- (^) XOR ---')  
+	op1 = new Num('3.0')  
+	op2 = 5
+	console.log(`${Num.int(op1).toString(2).padStart(8, '0')}`, op1.toString()) //00000011 3.0
+	op1 = op1.Xorb(op2)                                                         //XOR
+	console.log(`${Num.int(op2).toString(2).padStart(8, '0')}`, op2)            //00000101 5
+	console.log(`${Num.int(op1).toString(2).padStart(8, '0')}`, op1.toString()) //00000110 6
+
+	console.log('--- (<<) LEFT SHIFT -X10 MULTIPLIER ---')  
+	op1 = new Num('1.0')  
+	op2 = 2
+	console.log(`${Num.int(op1).toString(2).padStart(8, '0')}`, op1.toString()) //00000001 1.0
+	op1 = op1.Shift(op2)                                                        //LEFT SHIFT -X10 MULTIPLIER
+	console.log(`${Num.int(op2).toString(2).padStart(8, '0')}`, op2)            //00000010 2  
+	console.log(`${Num.int(op1).toString(2).padStart(8, '0')}`, op1.toString()) //01100100 100.0 
+
+	console.log('--- (>>) RIGHT SHIFT -X10 DIVIDER ---')  
+	op1 = new Num('250.0')  
+	op2 = -1
+	console.log(`${Num.int(op1).toString(2).padStart(8, '0')}`, op1.toString()) //11111010 250.0  
+	op1 = op1.Shift(op2)                                                        //RIGHT SHIFT -X10 DIVIDER  
+	console.log(`${op2}`)                                                       //-1 (decimal)
+	console.log(`${Num.int(op1).toString(2).padStart(8, '0')}`, op1.toString()) //00011001 25.0
+
+	console.log('--- (~) NOT ---')  
+	op1 = new Num('10.0')  
+	console.log(`${Num.int(op1).toString(2).padStart(8, '0')}`, op1.toString()) //00001010 10.0   
+	op2 = op1.Notb()                                                            //(~) NOT 
+	console.log(`${Num.int(op2).toString(2).padStart(8, '0')}`, op2.toString()) //#00000101 5.0  
   
  On a given variable the following arithmetic methods are available:
 

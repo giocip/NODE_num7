@@ -148,6 +148,16 @@ logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (a
 	> console.log(a.Invsign().toString());  //-2.5521
 	> console.log(a.Invsign().toString()); //2.5521
 
+  bitwise operators code:
+
+	console.log('--- (&) AND ---')  
+	op1 = new Num('3.0')  
+	op2 = 5
+	console.log(`${Num.int(op1).toString(2).padStart(8, '0')}`, op1.toString()) //00000011 3.0
+	op1 = op1.Andb(op2)                                                         //AND
+	console.log(`${Num.int(op2).toString(2).padStart(8, '0')}`, op2)            //00000101 5
+	console.log(`${Num.int(op1).toString(2).padStart(8, '0')}`, op1.toString()) //00000001 1
+  
  On a given variable the following arithmetic methods are available:
 
 	//variable arithmetics  

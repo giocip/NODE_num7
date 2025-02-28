@@ -319,3 +319,27 @@ ROUNDING TYPES >
 	console.log(n, n.Round_bank(7).toString())            // 0.1415926  
 	n = new Num(Num.pi).Round_floor(8).Inv_sign().Add(3) //-0.14159265  
 	console.log(n, n.Round_bank(7).toString())          //-0.1415926  
+
+PERFORMANCE EVALUATION AND SQUARENESS >
+
+	num7 = require("./num7"); Num = num7.Num
+
+	tic = performance.now() //Start Time 
+	a = new Num('-1.123456789'+'e-100')      //calculating division 10**100... 
+	toc = performance.now() //Stop Time
+	T1 = ((toc - tic) / 1000).toFixed(6)
+	console.log(`a finished sec. ${T1}`) //a finished sec. 0.001129
+	
+	tic = performance.now() //Start Time 
+	b = new Num('-1.123456789').Shift(-100)  //calculating division 10**100... 
+	toc = performance.now() //Stop Time
+	T2 = ((toc - tic) / 1000).toFixed(6)
+	console.log(`b finished sec. ${T2}`) //b finished sec. 0.000739
+	
+	R = Num.f_perf_time(T1, T2)
+	console.log('PCT=>', Num.round(R[0]).toString(), 'SCALE=>', Num.round(R[1]).toString(), 'SQUARENESS=>', a.EQ(b)) //PCT=> 52.77 SCALE=> 0.53 SQUARENESS=> true
+	
+	//stock exchange assets performance 
+	previous = new Num('26.96'); now = new Num('27.27') 
+	var_pct = new Num(Num.f_perf(previous, now)).Round()
+	console.log(`${(var_pct > 0 ? '+' : '')}${var_pct.toFixed(2)}`) //+1.15

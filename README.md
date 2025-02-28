@@ -194,7 +194,7 @@ logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (a
 	op1 = new Num('10.0')  
 	console.log(`${Num.int(op1).toString(2).padStart(8, '0')}`, op1.toString()) //00001010 10.0   
 	op2 = op1.Notb()                                                            //(~) NOT 
-	console.log(`${Num.int(op2).toString(2).padStart(8, '0')}`, op2.toString()) //#00000101 5.0  
+	console.log(`${Num.int(op2).toString(2).padStart(8, '0')}`, op2.toString()) //00000101 5.0  
   
  On a given variable the following arithmetic methods are available:
 

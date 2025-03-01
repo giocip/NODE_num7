@@ -28,7 +28,7 @@ Fairly portable to Python one (and vice-versa) also a Node.js system can work wi
 
   --- CALCULATOR MODE ---   
 
-                       > num7 = require('num7'); Num = num7.Num; calc = num7.Num; //IMPORT num7 LIBRARY
+                       > num7 = require('num7.js'); Num = num7.Num; calc = num7.Num; //IMPORT num7 LIBRARY
     ADDITION:          > calc.add('-5.3', '2.1').toString()    //new Num('-3.2')  
     SUBTRACTION:       > calc.sub('-5.3', '2.1').toString()    //new Num('-7.4')  
     MULTIPLICATION:    > calc.mul('-5.3', '2.1').toString()    //new Num('-11.13')  
@@ -51,7 +51,7 @@ Fairly portable to Python one (and vice-versa) also a Node.js system can work wi
     REPL:              > a = new calc('0.1'); b = new calc('0.2'); calc.add(a, b).toString() //0.3
 
 ## CODING:  
-	> num7 = require('num7'); Num = num7.Num; calc = num7.Num; //IMPORT num7 LIBRARY 
+	> num7 = require('num7.js'); Num = num7.Num; calc = num7.Num; //IMPORT num7 LIBRARY 
  
 (=) assignment:  
 
@@ -150,7 +150,7 @@ logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (a
 
   bitwise operators code:
 
- 	num7 = require('num7'); Num = num7.Num;
+ 	num7 = require('num7.js'); Num = num7.Num;
 	console.log('--- (&) AND ---')  
 	op1 = new Num('3.0')  
 	op2 = 5
@@ -200,7 +200,7 @@ logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (a
  On a given variable the following arithmetic methods are available:
 
 	//variable arithmetics  
-	num7 = require('num7'); Num = num7.Num; 
+	num7 = require('num7.js'); Num = num7.Num; 
 	
 	a = new Num('10.25')  
 	console.log(a.toString())       //10.25  
@@ -217,7 +217,7 @@ logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (a
 
 EVEN ODD numbering methods:
 	
-	num7 = require('num7'); Num = num7.Num; 
+	num7 = require('num7.js'); Num = num7.Num; 
 	
 	a = new Num(6); b = new Num(3); c = new Num('3.14')  
 	console.log(a, 'INTEGER =>', a.Is_numint(), 'EVEN =>', a.Is_numeven())   //6.0 INTEGER => true EVEN => true  
@@ -228,7 +228,7 @@ EVEN ODD numbering methods:
 
 LOOP EXAMPLE >
 
-	num7 = require('num7'); Num = num7.Num; 
+	num7 = require('num7.js'); Num = num7.Num; 
 	i = new Num(0) 
 	while (i.LT(new Num('1.0'))) {
 	    i.Inc('0.1')                //i += Num('0.1')
@@ -243,7 +243,7 @@ LOOP EXAMPLE >
 
 ROUNDING AND ACCOUNTING >
 
-	num7 = require('num7'); Num = num7.Num; 
+	num7 = require('num7.js'); Num = num7.Num; 
 	p = new Num('11.19')                          //PRICE -Toslink cable for soundbar  
 	pd = Num.round(p.F_price_over(-7))           //PRICE DISCOUNTED 7%
 	d = Num.round(p.Sub(pd))                    //DISCOUNT
@@ -253,7 +253,7 @@ ROUNDING AND ACCOUNTING >
 
 OUTPUT FORMATTING AND LOCALIZATION >
 
-	num7 = require('num7'); Num = num7.Num; 
+	num7 = require('num7.js'); Num = num7.Num; 
 	
 	const userLang = navigator.language || navigator.userLanguage; 
 	console.log(userLang);  // e.g., 'it-IT' "en-US", "fr-FR" 
@@ -275,7 +275,7 @@ OUTPUT FORMATTING AND LOCALIZATION >
 
 ROUNDING TYPES >
 
-	num7 = require('num7'); Num = num7.Num;
+	num7 = require('num7.js'); Num = num7.Num;
 	
 	//''' Num floor rounding '''  
 	console.log(''.padStart(20, '-') + ' Num floor rounding')  
@@ -323,7 +323,7 @@ ROUNDING TYPES >
 
 PERFORMANCE EVALUATION AND SQUARENESS >
 
-	num7 = require('num7'); Num = num7.Num
+	num7 = require('num7.js'); Num = num7.Num
 
 	tic = performance.now() //Start Time 
 	a = new Num('-1.123456789'+'e-100')      //calculating division 10**100... 

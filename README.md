@@ -11,13 +11,13 @@ Fairly portable to Python one (and vice-versa) also a Node.js system can work wi
 
 ## Installation num7 package
 
-### Using ...
+### Using npm
 
-- To install _**`num7 package`**_ using `...`, enter the following:
+- To install _**`num7 package`**_ using `npm`, enter the following:
 
   ```javascript
-  ...  //win
-  ... //linux
+  npm install num7.js  //win
+  npm install num7.js //linux
   ```
 
 - Ok!
@@ -344,3 +344,46 @@ PERFORMANCE EVALUATION AND SQUARENESS >
 	previous = new Num('26.96'); now = new Num('27.27') 
 	var_pct = new Num(Num.f_perf(previous, now)).Round()
 	console.log(`${(var_pct > 0 ? '+' : '')}${var_pct.toFixed(2)}`) //+1.15
+
+ SCIENTIFIC NOTATION AND HIGH PRECISION RESULTS >
+
+ 	num7 = require('num7.js'); Num = num7.Num
+
+	a = new Num('1_000_000_000_000_000_000_000.0') //standard notation  
+	b = new Num('1.0e21')                         //scientific notation  
+	SUM = a.Add(b)                               //SUM  
+	ieee754 = a.Float() + b.Float() //
+	console.log('SUM == ieee754', SUM.Int() == Num.int(ieee754), ' SUM =>', SUM.Num2exp()) //SUM == ieee754 True  SUM => 2.0e21  
+
+	a = new Num('1_000_000_000_000_000_000_000.0') //standard notation  
+	b = new Num('1.0e21')                         //scientific notation  
+	MUL = a.Mul(b)                               //MUL  
+	ieee754 = a.Float() * b.Float() //
+	console.log('MUL == ieee754', MUL.Int() == Num.int(ieee754), ' MUL =>', MUL.Num2exp()) //MUL == ieee754 True  MUL => 1.0e42  
+
+	a = '1.23456789'  
+	b = '9.87654321'  
+	MUL = new Num(a).Mul(new Num(b))    //MUL                        
+	ieee754 = Number.parseFloat(a) * Number.parseFloat(b)
+	console.log('MUL == ieee754', MUL == new Num(String(ieee754)), ' MUL =>', MUL.toString(), Number.parseFloat(a)*Number.parseFloat(b), '=> IEEE754 PRECISION FAILURE!') //MUL == ieee754 False MUL => 12.1932631112635269 12.193263111263525 => IEEE754 PRECISION FAILURE!  
+
+	a = '1.23456789e320'  //scientific notation  
+	b = '9.87654321e320'   
+	MUL = new Num(a).Mul(new Num(b))    //MUL                        
+	ieee754 = Number.parseFloat(a) * Number.parseFloat(b)
+	console.log('MUL == ieee754', MUL.toString() == String(ieee754), 'MUL =>', MUL.Num2exp(), Number.parseFloat(a)*Number.parseFloat(b), '=> IEEE754 Infinity FAILURE!') //MUL == ieee754 false MUL => 1.21932631112635269e641 Infinity => IEEE754 Infinity FAILURE!  
+
+	a = '2.0e320' //scientific notation  
+	b = '3.0e-320'  
+	MUL = new Num(a).Mul(new Num(b))    //MUL                        
+	ieee754 = Number.parseFloat(a) * Number.parseFloat(b)
+	console.log('MUL == ieee754', MUL.toString() == ieee754.toString(), 'MUL =>', MUL.Num2exp(), ieee754, '=> IEEE754 Infinity FAILURE!') //MUL == ieee754 false MUL => 6.0e0 Infinity => IEEE754 Infinity FAILURE!  
+
+	a = '1.0e200' //scientific notation  
+	b = '5.0e1200'  
+	T1 = new Num(a) 
+	T2 = new Num(b) 
+	DIV = T1.Div(T2, 1200) //DIV, ultra precision (over 80 digits default) floating point division must be specified! 
+	ieee754 = Number.parseFloat(a) / (Number.parseFloat(b))
+	console.log('DIV == ieee754', DIV.toString() == ieee754.toString(), 'DIV =>', DIV.Num2exp(), ieee754, '=> IEEE754 precision FAILURE!') //DIV == ieee754 false DIV => 2.0e-1001 0 => IEEE754 precision FAILURE!
+

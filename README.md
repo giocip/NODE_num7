@@ -396,3 +396,16 @@ FLOAT TO NUM CONVERSION LIST ARRAY >
 	for(let i of LN) console.log(i.n)           //['1011.0', '0.0', '9.998412', '7.0', '0.123', '-2.0123', '10.0', '6.0']
 	for(let i of LN) console.log(i.toString()) //[Num('1011.0'), Num('0.0'), Num('9.998412'), Num('7.0'), Num('0.123'), Num('-2.0123'), Num('10.0'), Num('6.0')]
 
+SAVE NUMERIC LIST TO DISK FILE >
+
+	num7 = require('num7.js'); Num = num7.Num
+	
+	L = [1011, 0.0, 9.998412, 7.0, 0.123, -2.0123, 10, 6]
+	LN= Num.float2num_list(L)
+	for(let i of LN) console.log(i.n)           //['1011.0', '0.0', '9.998412', '7.0', '0.123', '-2.0123', '10.0', '6.0']
+	for(let i of LN) console.log(i.toString()) //[Num('1011.0'), Num('0.0'), Num('9.998412'), Num('7.0'), Num('0.123'), Num('-2.0123'), Num('10.0'), Num('6.0')]
+	Num.f_filewrite(LN)
+
+READ NUMERIC LIST ARRAY FROM DISK FILE (nums.txt default filename) >
+
+	A = Num.f_fileread(); console.log(A) //(8) ['1011.0', '0.0', '9.998412', '7.0', '0.123', '-2.0123', '10.0', '6.0']

@@ -415,7 +415,7 @@ READ NUMERIC LIST ARRAY FROM DISK FILE (nums.txt default filename) >
 
 Q. I usually try to add 0.1 to 0.2 in node with this code:  
 
-	> console.log(0.1 + 0.2) / 
+	> console.log(0.1 + 0.2) //
 	and the result is:  
 
 	> 0.30000000000000004  

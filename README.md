@@ -409,3 +409,78 @@ SAVE NUMERIC LIST TO DISK FILE >
 READ NUMERIC LIST ARRAY FROM DISK FILE (nums.txt default filename) >
 
 	A = Num.f_fileread(); console.log(A) //(8) ['1011.0', '0.0', '9.998412', '7.0', '0.123', '-2.0123', '10.0', '6.0']
+
+
+### FAQ 
+
+Q. I usually try to add 0.1 to 0.2 in node with this code:  
+
+	> console.log(0.1 + 0.2) / 
+	and the result is:  
+
+	> 0.30000000000000004  
+
+How instead can it gets exactly 0.3?  
+A. Using Num class >  
+
+	num7 = require("num7.js"); Num = num7.Num; calc = num7.Num 
+	console.log(new Num('0.1').Add(new Num('0.2')).toString())  //as calc.add('0.1', '0.2').toString()
+
+Q. I'll get an error when i usually type:  
+	
+	> new Num(0.1)    
+ 
+	Uncaught Error: Num class constructor => number not valid: 0.1
+	
+What is wrong?  
+A. You must use quotes or string conversion with built-in String function:
+
+	> num7 = require("num7.js"); Num = num7.Num; calc = num7.Num 
+	> new Num('0.1')    		   //Num('0.1')  
+	> new Num(String(0.1)).toString() //'0.1' 
+
+Q. How can i convert a regular float to a Decimal?  
+A. With Num.ieee754() method >  
+
+	num7 = require("num7.js"); Num = num7.Num; calc = num7.Num  
+	
+	a=0.1; b=0.2;  
+	c=a+b                                     //0.30000000000000004 => PRECISION FAILURE!  
+	an = Num.ieee754(a); console.log(an)      //0.1000000000000000055511151231257827021181583404541015625  
+	     
+	bn = Num.ieee754(b); console.log(bn)      //0.2000000000000000111022302462515654042363166809082031250  
+	cn = Num.ieee754(c);  
+	console.log(cn, '=> PRECISION FAILURE!')  //0.3000000000000000444089209850062616169452667236328125000 => PRECISION FAILURE!  
+	T = calc.add(an, bn)  
+	console.log(T.toString(), '=> OK.')       //0.3000000000000000166533453693773481063544750213623046875 => OK.  
+
+Q. I have two float variables in my code:  
+
+	> a = 0.1; b = 0.2  
+	
+How can i convert them in Num type?  
+A. With Num.float2num method (or directly with str() built-in function): 
+
+	num7 = require("num7.js"); Num = num7.Num  
+	a = 0.1; b = 0.2 //  
+	an= Num.float2num(a); bn= Num.float2num(b) //an= new Num(String(a)); bn= new Num(String(b))  
+	console.log(an.Add(bn).toString(), 'OK. VS', a+b, 'PRECISION FAILURE!') //0.3 OK. VS 0.30000000000000004 PRECISION FAILURE!  
+
+Q. Can i do add or other math operations also with 10,000 digits after floating point?  
+A. Yes, you can by the following:
+
+	num7 = require("num7.js"); Num = num7.Num 
+ 
+	console.log((new Num('1.123456789e-10_000').Add(new Num('3.987654321e-10_000'))).Num2exp())     //5.11111111e-10000  
+	console.log((new Num('1.123456789e-10_000').Sub(new Num('3.987654321e-10_000'))).Num2exp())    //-2.864197532e-10000  
+	console.log((new Num('1.123456789e-10_000').Mul(new Num('3.987654321e-10_000'))).Num2exp())   //4.479957319112635269e-20000  
+	console.log((new Num('1.123456789e-10_000').Div(new Num('3.987654321e-10_000'))).toString()) //0.28173374584742497292307298769992856660154820877213142969420392746224704666420356
+
+Q. I must enter many integer variables in my code:  
+
+	> a = new Num('123.0'); b = new Num('456.0'); c = new Num('789.0')
+	
+Can i input them without quotes and suffix .0?  
+A. Yes, this the way:
+
+	> a = new Num(123); b = new Num(456); c = new Num(789)  

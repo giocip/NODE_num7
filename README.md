@@ -29,7 +29,7 @@ Fairly portable to Python one (and vice-versa) also a Node.js system can work wi
 
   --- CALCULATOR MODE ---   
 
-                       > num7 = require('num7.js'); Num = num7.Num; calc = num7.Num; //IMPORT num7 LIBRARY
+                       > num7 = require('num7'); Num = num7.Num; calc = num7.Num; //IMPORT num7 LIBRARY
     ADDITION:          > calc.add('-5.3', '2.1').toString()    //new Num('-3.2')  
     SUBTRACTION:       > calc.sub('-5.3', '2.1').toString()    //new Num('-7.4')  
     MULTIPLICATION:    > calc.mul('-5.3', '2.1').toString()    //new Num('-11.13')  
@@ -52,7 +52,7 @@ Fairly portable to Python one (and vice-versa) also a Node.js system can work wi
     REPL:              > a = new calc('0.1'); b = new calc('0.2'); calc.add(a, b).toString() //0.3
 
 ## CODING:  
-	> num7 = require('num7.js'); Num = num7.Num; calc = num7.Num; //IMPORT num7 LIBRARY 
+	> num7 = require('num7'); Num = num7.Num; calc = num7.Num; //IMPORT num7 LIBRARY 
  
 (=) assignment:  
 
@@ -151,7 +151,7 @@ logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (a
 
   bitwise operators code:
 
- 	num7 = require('num7.js'); Num = num7.Num;
+ 	num7 = require('num7'); Num = num7.Num;
 	console.log('--- (&) AND ---')  
 	op1 = new Num('3.0')  
 	op2 = 5
@@ -201,7 +201,7 @@ logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (a
  On a given variable the following arithmetic methods are available:
 
 	//variable arithmetics  
-	num7 = require('num7.js'); Num = num7.Num; 
+	num7 = require('num7'); Num = num7.Num; 
 	
 	a = new Num('10.25')  
 	console.log(a.toString())       //10.25  
@@ -218,7 +218,7 @@ logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (a
 
 EVEN ODD numbering methods:
 	
-	num7 = require('num7.js'); Num = num7.Num; 
+	num7 = require('num7'); Num = num7.Num; 
 	
 	a = new Num(6); b = new Num(3); c = new Num('3.14')  
 	console.log(a, 'INTEGER =>', a.Is_numint(), 'EVEN =>', a.Is_numeven())   //6.0 INTEGER => true EVEN => true  
@@ -229,7 +229,7 @@ EVEN ODD numbering methods:
 
 LOOP EXAMPLE >
 
-	num7 = require('num7.js'); Num = num7.Num; 
+	num7 = require('num7'); Num = num7.Num; 
 	i = new Num(0) 
 	while (i.LT(new Num('1.0'))) {
 	    i.Inc('0.1')                //i += Num('0.1')
@@ -244,7 +244,7 @@ LOOP EXAMPLE >
 
 ROUNDING AND ACCOUNTING >
 
-	num7 = require('num7.js'); Num = num7.Num; 
+	num7 = require('num7'); Num = num7.Num; 
 	p = new Num('11.19')                          //PRICE -Toslink cable for soundbar  
 	pd = Num.round(p.F_price_over(-7))           //PRICE DISCOUNTED 7%
 	d = Num.round(p.Sub(pd))                    //DISCOUNT
@@ -254,7 +254,7 @@ ROUNDING AND ACCOUNTING >
 
 OUTPUT FORMATTING AND LOCALIZATION >
 
-	num7 = require('num7.js'); Num = num7.Num; 
+	num7 = require('num7'); Num = num7.Num; 
 	
 	const userLang = navigator.language || navigator.userLanguage; 
 	console.log(userLang);  // e.g., 'it-IT' "en-US", "fr-FR" 
@@ -276,7 +276,7 @@ OUTPUT FORMATTING AND LOCALIZATION >
 
 ROUNDING TYPES >
 
-	num7 = require('num7.js'); Num = num7.Num;
+	num7 = require('num7'); Num = num7.Num;
 	
 	//''' Num floor rounding '''  
 	console.log(''.padStart(20, '-') + ' Num floor rounding')  
@@ -324,7 +324,7 @@ ROUNDING TYPES >
 
 PERFORMANCE EVALUATION AND SQUARENESS >
 
-	num7 = require('num7.js'); Num = num7.Num
+	num7 = require('num7'); Num = num7.Num
 
 	tic = performance.now() //Start Time 
 	a = new Num('-1.123456789'+'e-100')      //calculating division 10**100... 
@@ -348,7 +348,7 @@ PERFORMANCE EVALUATION AND SQUARENESS >
 
  SCIENTIFIC NOTATION AND HIGH PRECISION RESULTS >
 
- 	num7 = require('num7.js'); Num = num7.Num
+ 	num7 = require('num7'); Num = num7.Num
 
 	a = new Num('1_000_000_000_000_000_000_000.0') //standard notation  
 	b = new Num('1.0e21')                         //scientific notation  
@@ -390,7 +390,7 @@ PERFORMANCE EVALUATION AND SQUARENESS >
 
 FLOAT TO NUM CONVERSION LIST ARRAY >
 
-	num7 = require('num7.js'); Num = num7.Num
+	num7 = require('num7'); Num = num7.Num
 
 	L = [1011, 0.0, 9.998412, 7.0, 0.123, -2.0123, 10, 6]
 	LN= Num.float2num_list(L)
@@ -399,7 +399,7 @@ FLOAT TO NUM CONVERSION LIST ARRAY >
 
 SAVE NUMERIC LIST TO DISK FILE >
 
-	num7 = require('num7.js'); Num = num7.Num
+	num7 = require('num7'); Num = num7.Num
 	
 	L = [1011, 0.0, 9.998412, 7.0, 0.123, -2.0123, 10, 6]
 	LN= Num.float2num_list(L)
@@ -424,7 +424,7 @@ Q. I usually try to add 0.1 to 0.2 in node with this code:
 How instead can it gets exactly 0.3?  
 A. Using Num class >  
 
-	num7 = require("num7.js"); Num = num7.Num; calc = num7.Num 
+	num7 = require("num7"); Num = num7.Num; calc = num7.Num 
 	console.log(new Num('0.1').Add(new Num('0.2')).toString())  //as calc.add('0.1', '0.2').toString()
 
 Q. I'll get an error when i usually type:  
@@ -436,14 +436,14 @@ Q. I'll get an error when i usually type:
 What is wrong?  
 A. You must use quotes or string conversion with built-in String function:
 
-	> num7 = require("num7.js"); Num = num7.Num; calc = num7.Num 
+	> num7 = require("num7"); Num = num7.Num; calc = num7.Num 
 	> new Num('0.1')    		   //Num('0.1')  
 	> new Num(String(0.1)).toString() //'0.1' 
 
 Q. How can i convert a regular float to a Decimal?  
 A. With Num.ieee754() method >  
 
-	num7 = require("num7.js"); Num = num7.Num; calc = num7.Num  
+	num7 = require("num7"); Num = num7.Num; calc = num7.Num  
 	
 	a=0.1; b=0.2;  
 	c=a+b                                     //0.30000000000000004 => PRECISION FAILURE!  
@@ -462,7 +462,7 @@ Q. I have two float variables in my code:
 How can i convert them in Num type?  
 A. With Num.float2num method (or directly with str() built-in function): 
 
-	num7 = require("num7.js"); Num = num7.Num  
+	num7 = require("num7"); Num = num7.Num  
 	a = 0.1; b = 0.2 //  
 	an= Num.float2num(a); bn= Num.float2num(b) //an= new Num(String(a)); bn= new Num(String(b))  
 	console.log(an.Add(bn).toString(), 'OK. VS', a+b, 'PRECISION FAILURE!') //0.3 OK. VS 0.30000000000000004 PRECISION FAILURE!  
@@ -470,7 +470,7 @@ A. With Num.float2num method (or directly with str() built-in function):
 Q. Can i do add or other math operations also with 10,000 digits after floating point?  
 A. Yes, you can by the following:
 
-	num7 = require("num7.js"); Num = num7.Num 
+	num7 = require("num7"); Num = num7.Num 
  
 	console.log((new Num('1.123456789e-10_000').Add(new Num('3.987654321e-10_000'))).Num2exp())     //5.11111111e-10000  
 	console.log((new Num('1.123456789e-10_000').Sub(new Num('3.987654321e-10_000'))).Num2exp())    //-2.864197532e-10000  

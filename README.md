@@ -475,7 +475,7 @@ A. Yes, you can by the following:
 	console.log((new Num('1.123456789e-10_000').Add(new Num('3.987654321e-10_000'))).Num2exp())     //5.11111111e-10000  
 	console.log((new Num('1.123456789e-10_000').Sub(new Num('3.987654321e-10_000'))).Num2exp())    //-2.864197532e-10000  
 	console.log((new Num('1.123456789e-10_000').Mul(new Num('3.987654321e-10_000'))).Num2exp())   //4.479957319112635269e-20000  
-	console.log((new Num('1.123456789e-10_000').Div(new Num('3.987654321e-10_000'))).toString()) //0.281...
+	console.log((new Num('1.123456789e-10_000').Div(new Num('3.987654321e-10_000'))).toString()) //0.281... (10011 digits)
 
 Q. I must enter many integer variables in my code:  
 

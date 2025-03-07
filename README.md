@@ -29,25 +29,25 @@ Fairly portable to Python one (and vice-versa) also a Node.js system can work wi
 
   --- CALCULATOR MODE ---   
 
-                       > num7 = require('num7'); Num = num7.Num; calc = num7.Num; //IMPORT num7 LIBRARY
-    ADDITION:          > calc.add('-5.3', '2.1').toString()    //new Num('-3.2')  
-    SUBTRACTION:       > calc.sub('-5.3', '2.1').toString()    //new Num('-7.4')  
-    MULTIPLICATION:    > calc.mul('-5.3', '2.1').toString()    //new Num('-11.13')  
-    DIVISION:          > calc.div('-5.3', '2.1').toString()    //new Num('-2.52380952380952380952380952380952380952380952380952380952380952380952380952380952')  
+                       > num7 = require('num7'); Num = num7.Num; calc = num7.Num; //IMPORT num7 LIBRARY => [class Num] { pi: '3.141592654', e: '2.718281828' }
+    ADDITION:          > calc.add('-5.3', '2.1').toString()    //'-3.2'  
+    SUBTRACTION:       > calc.sub('-5.3', '2.1').toString()    //'-7.4'  
+    MULTIPLICATION:    > calc.mul('-5.3', '2.1').toString()    //'-11.13'  
+    DIVISION:          > calc.div('-5.3', '2.1').toString()    //'-2.52380952380952380952380952380952380952380952380952380952380952380952380952380952'
     M+:                > M = new calc('0.0'); M.Inc('3.0'); M.Inc('3.3'); M.Inc('3.7'); console.log(M.toString()) //10.0  
     M-:                >                  M.Dec('5.0'); M.Dec('3.3'); M.Dec('1.5'); console.log(M.toString()) //0.2  
     MC:                > M.Clear(); console.log(M.toString())  //0.0  
     INT   DIV AND REM: > calc.divmod('5.0', '3.0').toString()  //'1.0,2.0' => Array()  
     FLOAT DIV AND REM: > calc.divmod('5.2', '3.1').toString()  //'1.0,2.1' => Array()  
-    POWER:             > calc.pow('-5.3', '2.0').toString()    //new Num('28.09')  
-    SQRT:              > calc.sqrt('2.0').toString()           //new Num('1.41421356237309504880168872420969807856967187537694807317667973799073247846210703')  
-    ROOT_ith           > calc.root_i('1.860867', 3).toString() //new Num('1.23')  
-    ROUND:             > calc.sqrt('2.0').Round(2).toString()  //new Num('1.41')  
-    ABSOLUTE VALUE     > calc.abs('-3.0').toString()           //new Num('3.0')  
-    SUM:               > cart = ['19.32','18.37','15.13']; calc.sum(cart).toString()     	   //new Num('52.82')  
-    MEAN:              > cart = ['19.32','18.37','15.13']; calc.mean(cart).Round().toString() //new Num('17.61')  
-    MIN:               > cart = ['19.32','18.37','15.13']; calc.min(cart).toString()   //new Num('15.13')  
-    MAX:               > cart = ['19.32','18.37','15.13']; calc.max(cart).toString()  //new Num('19.32')  
+    POWER:             > calc.pow('-5.3', '2.0').toString()    //'28.09'
+    SQRT:              > calc.sqrt('2.0').toString()           //'1.41421356237309504880168872420969807856967187537694807317667973799073247846210703'
+    ROOT_ith           > calc.root_i('1.860867', 3).toString() //'1.23'
+    ROUND:             > calc.sqrt('2.0').Round(2).toString()  //'1.41'
+    ABSOLUTE VALUE     > calc.abs('-3.0').toString()           //'3.0'
+    SUM:               > cart = ['19.32','18.37','15.13']; calc.sum(cart).toString()           //'52.82' 
+    MEAN:              > cart = ['19.32','18.37','15.13']; calc.mean(cart).Round().toString() //'17.61'
+    MIN:               > cart = ['19.32','18.37','15.13']; calc.min(cart).toString()   //'15.13' 
+    MAX:               > cart = ['19.32','18.37','15.13']; calc.max(cart).toString()  //'19.32'
     EXP:               > calc.mul('-5.3e1024', '2.1e1024').Num2exp()                 //'-1.113e2049'  
     REPL:              > a = new calc('0.1'); b = new calc('0.2'); calc.add(a, b).toString() //0.3
 

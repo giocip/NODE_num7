@@ -425,7 +425,7 @@ How instead can it gets exactly 0.3?
 A. Using Num class >  
 
 	num7 = require("num7"); Num = num7.Num; calc = num7.Num 
-	console.log(new Num('0.1').Add(new Num('0.2')).toString())  //as calc.add('0.1', '0.2').toString()
+	console.log(new Num('0.1').Add(new Num('0.2')).toString())  //0.3 as calc.add('0.1', '0.2').toString()
 
 Q. I'll get an error when i usually type:  
 	
@@ -460,7 +460,7 @@ Q. I have two float variables in my code:
 	> a = 0.1; b = 0.2  
 	
 How can i convert them in Num type?  
-A. With Num.float2num method (or directly with str() built-in function): 
+A. With Num.float2num method (or directly with String() built-in function): 
 
 	num7 = require("num7"); Num = num7.Num  
 	a = 0.1; b = 0.2 //  
@@ -475,7 +475,7 @@ A. Yes, you can by the following:
 	console.log((new Num('1.123456789e-10_000').Add(new Num('3.987654321e-10_000'))).Num2exp())     //5.11111111e-10000  
 	console.log((new Num('1.123456789e-10_000').Sub(new Num('3.987654321e-10_000'))).Num2exp())    //-2.864197532e-10000  
 	console.log((new Num('1.123456789e-10_000').Mul(new Num('3.987654321e-10_000'))).Num2exp())   //4.479957319112635269e-20000  
-	console.log((new Num('1.123456789e-10_000').Div(new Num('3.987654321e-10_000'))).toString()) //0.28173374584742497292307298769992856660154820877213142969420392746224704666420356
+	console.log((new Num('1.123456789e-10_000').Div(new Num('3.987654321e-10_000'))).toString()) //0.281...
 
 Q. I must enter many integer variables in my code:  
 

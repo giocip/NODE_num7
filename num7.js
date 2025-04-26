@@ -676,17 +676,17 @@ class Num {
         while (a > 9n) {
           b = 0 
           s = this.n1.slice(d-of2-1, d-of2)
-          if (!s) return new Num(this.n2 + String(Num.int(this.n0)+1n) + '.0') //3.95 => 4.0
+          if (!s) return new Num(this.n2 + String(Num.int(this.n0)+1n) + '.0')               //3.95 => 4.0
           a = Num.int(s) //3.0955 d=2 => 3.1
           a += 1n 
           of2 += 1          
         }
-        return new Num(this.n2 + this.n0 + '.' + this.n1.slice(0, d-of2) + String(a)) //3.095 => 3.1
+        return new Num(this.n2 + this.n0 + '.' + this.n1.slice(0, d-of2) + String(a))    //3.095 => 3.1
       } else if(c != '') { //EVEN OVERFLOW
         a += 1n
-        return new Num(this.n2 + this.n0 + '.' + this.n1.slice(0, d-1) + String(a)) //12.51 => 13.0 INTEGER
+        return new Num(this.n2 + this.n0 + '.' + this.n1.slice(0, d-1) + String(a))    //12.51 => 13.0 INTEGER
       } else {
-        if (!a) return new Num('0.0') //:# a == 0
+        if (!Num.int(this.n0) && Num.int(this.n1) == 5) return new Num('0.0')        // self.n0 == 0 and self.n1 == 5 (ex. -0.00000005) -ZERO SYMMETRIC MEETING
         return new Num(this.n2 + this.n0 + '.' + this.n1.slice(0, d-1) + String(a)) //EVEN 5.65 => 5.6 -0.05 => 0.0        
       }
     }
@@ -978,7 +978,7 @@ class Num {
     if(typeof(n) == 'number') {
       let N = n.toString().toUpperCase().split('E')
       let s
-      if(N[0] == '-INFINITY' || N[0] == 'INFINITY') throw Error("ValueError: NOT A NUMBER (nan): " + n)
+      if(N[0] == '-INFINITY' || N[0] == 'INFINITY') throw Error("Num.int => ValueError: NOT A NUMBER (nan): " + n)
       if(N[1]) { //EXPONENTIAL (ONLY INTEGER RESULTS)
         let SIGN = (N[0][0] == '-' ? '-' : '')
         if(Num.isDigit(N[0]) || SIGN && Num.isDigit(N[0].slice(1))) {   //1e+21 =>  1000000000000000000000
@@ -994,7 +994,7 @@ class Num {
     if(n.type == 'Num')       return BigInt(n.n2 + n.n0)          //Num TRUNCATION by BigInt
     if(Num.isDigit(n))        return BigInt(n)                   //POSITIVE INTEGER STRING (ONLY DIGITS)
     if(n[0] == '-' && Num.isDigit(n.slice(1))) return BigInt(n) //NEGATIVE INTEGER STRING
-    throw Error("ValueError: invalid literal for int() with base 10: " + n)
+    throw Error("Num.int => ValueError: invalid literal for int() with base 10: " + n)
   }
 
   /**   DIVISION BETWEEN SIGNED INTEGER NUMBER 
@@ -1011,18 +1011,16 @@ class Num {
     n = n < 0n ? -n : n          //abs()
     div = div < 0n ? -div : div //abs()
     d = BigInt(d) < 0n ? -BigInt(d) : BigInt(d)
-    let q = n / div; //INTEGER BigInt DIVISION
-    let s = String(q) + "."
+    let r = n / div; //INTEGER BigInt DIVISION
+    let s = String(r) + "."
     let k = d
-    let r
     while (k > 0) {
       r = n % div
       n = r * 10n
-      q = n / div
-      s = s + String(q)
-      if(!r && !q) break //if(r == 0n && q == 0n) break
-      r = q
-      k -= 1n
+      r = n / div
+      s += String(r)
+      if (!r && !n) break //#CLEAR SPURIOUS ZEROs
+      k--
     }
     if (!(n_si || div_si) || (n_si && div_si)) return d ? s : s + "0"                               //POSITIVE
     else return d ? (s == "0.0" ? s : "-" + s) : ("-" + s + "0" == "-0.0" ? "0.0" : "-" + s + "0") //NEGATIVE
@@ -1153,7 +1151,7 @@ class Num {
     n = new Num(n)
     if (n.Is_numint() && d == 0) {
       //ONLY INTEGER SQUARE ROOT RESULT
-      if (n.Is_negative()) throw Error("Num.Sqr => Negative number: " + n)
+      if (n.Is_negative()) throw Error("Num.sqrt => Negative number: " + n)
       if (Num.not(n)) return new Num("0.0")        //ROOT ZERO
       let L = BigInt((String(n).length + 1) >> 1) //TWO DIVISION TO OBTAIN INTEGER ROOT SIZE
       let r = 10n ** L //NEWTON'S METHOD ON BIGINT
@@ -1166,7 +1164,7 @@ class Num {
       return new Num(r)
     }
     let nv = n.n.split(".")
-    if (Num.int(nv[0]) < 0) throw Error("Num.Sqr => Negative number: " + n)
+    if (Num.int(nv[0]) < 0) throw Error("Num.sqrt => Negative number: " + n)
     let n0 = nv[0]
     let L_n0 = n0.length
     let n1 = nv[1]
@@ -1473,7 +1471,7 @@ class Num {
   static float(a) { 
     let MAX_VALUE = new Num('1.7976931348623157e+308')
     let MIN_VALUE = new Num('5.0e-324')
-    if(a.GT(MAX_VALUE) || a.LE(MIN_VALUE)) throw Error("Num.float( => OVERFLOW number error: " + a)
+    if(a.GT(MAX_VALUE) || a.LE(MIN_VALUE)) throw Error("Num.float => OVERFLOW number error: " + a)
     return a.toFloat() 
   } 
 
@@ -1793,7 +1791,7 @@ class Num {
 
       }            
     }
-
+    Num.print("\nSUCCESS - THIS SYSTEM DOES SUPPORT ARBITRARY PRECISION ARITHMETIC (OK).\n")
     return
   }
 

@@ -29,7 +29,7 @@ Fairly portable to Python one (and vice-versa) also a Node.js system can work wi
 
   --- CALCULATOR MODE ---   
 
-                       > num7 = require('num7'); Num = num7.Num; calc = num7.Num; //IMPORT num7 LIBRARY => [class Num] { pi: '3.141592654', e: '2.718281828' }
+                       > num7 = require('num7'); Num = num7.Num; calc = num7.Num; //IMPORT num7 LIBRARY => [class Num] { pi: '3.1415926535897932384626433832795', e: '2.7182818284590452353602874713527' }
     ADDITION:          > calc.add('-5.3', '2.1').toString()    //'-3.2'  
     SUBTRACTION:       > calc.sub('-5.3', '2.1').toString()    //'-7.4'  
     MULTIPLICATION:    > calc.mul('-5.3', '2.1').toString()    //'-11.13'  
@@ -102,9 +102,9 @@ Division precision (ex. 128 decs) may be specified as parameter after numeric st
 
 	> a = new Num('2.22123').Pow(64); console.log(a.toString()) // 15204983311631674774944.65147209888660757554174463321311015807893679105748958794491681177995203669698667160837739445605536688871012507194541849848681968140805876570485027380472936734094801420552285940765338219588362327695177798251793912104057999943308320501195784173135380826413054938730768027747418766018606636039075568645106645889100039914241  
 	> console.log(a.Len().toString())           //(23, 320) digits len Array  
-	> console.log(new Num(Num.pi).toString())  //3.141592654  
-	> console.log(Num.pow(new Num(Num.pi), 8).toString()) //9488.531025982131642534428505085353941520356351078169077371202330414440366336  
-
+	> console.log(new Num(Num.pi).toString())  //3.1415926535897932384626433832795
+	> console.log(Num.pow(new Num(Num.pi), 8).toString()) //9488.53101607057400712857550390669610772775299223490285321770379105987141030240149336078150385043158469349154685725483405285555113328286167973377675298803815055897927366999722001973502924844693920864092029684743210236562107994363509552636547934500390625
+ 
 logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (and, or, not).  
 
 (in):  
@@ -118,7 +118,7 @@ logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (a
 
  	> Num.not_in(L, new Num('-3.0001'))   //false
   	> Num.not_in(L, new Num('-3.00001')) //true
-   	> new Num('-3.0001').Not_in(L)	    //false
+   	> new Num('-3.0001').Not_In(L)	    //false
 
 (is, is_not):
 
@@ -126,7 +126,7 @@ logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (a
  	> M = new calc('0.0'); Num.is_not(M.Inc('0.1'), M) //false
   	> M; N = M; N.Dec('0.1'); Num.is(N, M) 	   	  //true
    	> N.Is(M) 	//true  
-    > N.Is_not(M)  //false
+        > N.Is_not(M)  //false
   
  LT, LE, GT, GE, EQ, NE (< <= > >= == !=)
 
@@ -344,7 +344,7 @@ PERFORMANCE EVALUATION AND SQUARENESS >
 	//stock exchange assets performance 
 	previous = new Num('26.96'); now = new Num('27.27') 
 	var_pct = new Num(Num.f_perf(previous, now)).Round()
-	console.log(`${(var_pct > 0 ? '+' : '')}${var_pct.toFixed(2)}`) //+1.15
+	console.log(`${(var_pct > 0 ? '+' : '')}${var_pct.ToFixed(2)}`) //+1.15
 
  SCIENTIFIC NOTATION AND HIGH PRECISION RESULTS >
 

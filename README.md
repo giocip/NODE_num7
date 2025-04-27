@@ -209,9 +209,9 @@ logic in, not in, is, is not, LT, LE, GT, GE, EQ, NE and relational operators (a
 	console.log(a.toString())       //11.25   
 	a.Dec(2)       //decrement (optional) 2 units  
 	console.log(a.toString())       //9.25  
-	a.Incmul()     //multiply (default) 10 times  
+	a.IncMul()     //multiply (default) 10 times  
 	console.log(a.toString())       //92.5  
-	a.Decdiv(100)  //x100 (optional) division  
+	a.DecDiv(100)  //x100 (optional) division  
 	console.log(a.toString())       //0.925  
 	a.Clear()      //a variable set to zero   
 	console.log(a.toString())       //0.0    
@@ -353,14 +353,14 @@ PERFORMANCE EVALUATION AND SQUARENESS >
 	a = new Num('1_000_000_000_000_000_000_000.0') //standard notation  
 	b = new Num('1.0e21')                         //scientific notation  
 	SUM = a.Add(b)                               //SUM  
-	ieee754 = a.Float() + b.Float() //
-	console.log('SUM == ieee754', SUM.Int() == Num.int(ieee754), ' SUM =>', SUM.Num2exp()) //SUM == ieee754 True  SUM => 2.0e21  
+	ieee754 = a.toFloat() + b.toFloat() //
+	console.log('SUM == ieee754', SUM.toInt() == Num.int(ieee754), ' SUM =>', SUM.Num2exp()) //SUM == ieee754 True  SUM => 2.0e21  
 
 	a = new Num('1_000_000_000_000_000_000_000.0') //standard notation  
 	b = new Num('1.0e21')                         //scientific notation  
 	MUL = a.Mul(b)                               //MUL  
-	ieee754 = a.Float() * b.Float() //
-	console.log('MUL == ieee754', MUL.Int() == Num.int(ieee754), ' MUL =>', MUL.Num2exp()) //MUL == ieee754 True  MUL => 1.0e42  
+	ieee754 = a.toFloat() * b.toFloat() //
+	console.log('MUL == ieee754', MUL.toInt() == Num.int(ieee754), ' MUL =>', MUL.Num2exp()) //MUL == ieee754 True  MUL => 1.0e42  
 
 	a = '1.23456789'  
 	b = '9.87654321'  
